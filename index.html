@@ -13,7 +13,7 @@
     --accent-light: #e8d9b8;
     --grey: #6b6b6b;
     --grey-light: #e2dfd9;
-    --linkedin: #0a66c2;
+    --linkedin-blue: #0a66c2;
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -106,57 +106,57 @@
     opacity: .6;
   }
 
-  /* LINKEDIN PREMIUM BADGE */
-  .linkedin-badge {
+  /* LINKEDIN PREMIUM BUTTON */
+  .linkedin-btn {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    background: rgba(10, 102, 194, 0.15);
-    color: #70b5f9;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 10px 16px;
+    border-radius: 8px;
     text-decoration: none;
-    padding: 8px 14px;
-    border-radius: 4px;
-    font-size: 0.75rem;
+    color: #fff;
+    font-size: 0.8rem;
     font-family: 'DM Mono', monospace;
-    font-weight: 500;
-    border: 1px solid rgba(10, 102, 194, 0.3);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
     position: relative;
     overflow: hidden;
-    margin-top: 0.2rem;
+    margin-bottom: 1rem;
   }
 
-  .linkedin-badge svg {
-    width: 16px; height: 16px;
-    fill: #70b5f9;
+  .linkedin-btn svg {
+    width: 18px; height: 18px;
+    fill: #fff;
+    transition: all 0.4s ease;
     opacity: 1;
-    transition: transform 0.3s ease, fill 0.3s ease;
   }
 
-  .linkedin-badge::after {
+  /* Ligne qui glisse au hover */
+  .linkedin-btn::after {
     content: '';
     position: absolute;
-    bottom: 0; left: 0;
-    width: 0; height: 2px;
-    background: #fff;
-    transition: width 0.3s ease;
+    bottom: 0; left: -100%;
+    width: 100%; height: 2px;
+    background: var(--linkedin-blue);
+    transition: left 0.4s ease;
   }
 
-  .linkedin-badge:hover {
-    background: var(--linkedin);
-    color: #fff;
-    box-shadow: 0 0 20px rgba(10, 102, 194, 0.5);
+  .linkedin-btn:hover {
+    background: rgba(10, 102, 194, 0.1);
+    border-color: var(--linkedin-blue);
+    color: var(--linkedin-blue);
+    box-shadow: 0 0 15px rgba(10, 102, 194, 0.3);
     transform: translateY(-2px);
-    border-color: transparent;
   }
 
-  .linkedin-badge:hover svg {
-    fill: #fff;
-    transform: scale(1.2) rotate(-8deg);
+  .linkedin-btn:hover svg {
+    fill: var(--linkedin-blue);
+    transform: scale(1.2) rotate(-5deg);
   }
 
-  .linkedin-badge:hover::after {
-    width: 100%;
+  .linkedin-btn:hover::after {
+    left: 0;
   }
 
   .contact-email {
@@ -461,13 +461,10 @@
   }
 
   .skill-pill.active { background: var(--black); color: var(--white); }
-
   .skill-pill .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
 
   .footer { padding: 3rem 5rem; text-align: center; }
-
   .footer-cta { font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-bottom: .5rem; }
-
   .footer-email-link { font-family: 'DM Mono', monospace; font-size: .85rem; color: var(--accent); text-decoration: none; }
 
   .scroll-line {
@@ -503,12 +500,10 @@
   <div class="sidebar-section">
     <div class="sidebar-section-title">Contact</div>
     
-    <div class="contact-item">
-      <a href="https://www.linkedin.com/in/karim-sabri-11548a141" target="_blank" class="linkedin-badge">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-        <span>Profil LinkedIn</span>
-      </a>
-    </div>
+    <a href="https://www.linkedin.com/in/karim-sabri-11548a141" target="_blank" class="linkedin-btn">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+      Voir mon Profil
+    </a>
 
     <div class="contact-item">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
