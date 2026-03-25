@@ -116,17 +116,27 @@
     transition: all 0.3s ease;
   }
 
-  /* LINKEDIN SPECIFIC EFFECTS */
+  /* LINKEDIN SPECIFIC EFFECTS & STYLING */
   .contact-linkedin {
     position: relative;
     cursor: pointer;
     display: inline-flex;
     align-items: center;
+    /* Nouvelles règles pour entourer le bouton */
+    border: 1px solid rgba(10, 102, 194, 0.5); /* Bordure bleue semi-transparente par défaut */
+    background: rgba(10, 102, 194, 0.1); /* Léger fond bleu pour l'appel à l'action */
+    padding: 0.5rem 0.7rem;
+    border-radius: 4px;
+    width: fit-content; /* S'adapte au contenu */
+    margin-top: -0.2rem; /* Ajustement alignement */
+    margin-left: -0.2rem;
   }
 
   .contact-linkedin:hover {
     color: var(--linkedin);
     transform: translateX(5px);
+    border-color: var(--linkedin); /* Bordure pleine au hover */
+    background: rgba(10, 102, 194, 0.15); /* Fond légèrement plus opaque */
   }
 
   .contact-linkedin:hover svg {
@@ -137,6 +147,11 @@
 
   .linkedin-text {
     position: relative;
+    color: #eee; /* Légèrement plus clair pour lisibilité sur le fond */
+  }
+
+  .contact-linkedin:hover .linkedin-text {
+    color: var(--linkedin);
   }
 
   .linkedin-text::after {
