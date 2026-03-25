@@ -38,7 +38,7 @@
     color: var(--white);
     display: flex;
     flex-direction: column;
-    padding: 3rem 2.4rem;
+    padding: 2.5rem 2rem;
     z-index: 10;
     overflow-y: auto;
   }
@@ -73,14 +73,63 @@
     color: #aaa;
     font-style: italic;
     line-height: 1.5;
-    margin-bottom: 2rem;
-    padding-bottom: 2rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
     border-bottom: 1px solid #2a2a2a;
   }
 
-  .sidebar-section {
-    margin-bottom: 2rem;
+  /* LINKEDIN PREMIUM BUTTON */
+  .linkedin-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 0.75rem;
+    font-family: 'DM Mono', monospace;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    width: 100%;
   }
+
+  .linkedin-btn svg {
+    width: 18px; height: 18px;
+    fill: #fff;
+    transition: all 0.4s ease;
+  }
+
+  .linkedin-btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: -100%;
+    width: 100%; height: 2px;
+    background: var(--linkedin-blue);
+    transition: left 0.4s ease;
+  }
+
+  .linkedin-btn:hover {
+    background: rgba(10, 102, 194, 0.15);
+    border-color: var(--linkedin-blue);
+    color: #fff;
+    box-shadow: 0 0 20px rgba(10, 102, 194, 0.4);
+    transform: translateY(-2px);
+  }
+
+  .linkedin-btn:hover svg {
+    fill: #fff;
+    transform: scale(1.2) rotate(-8deg);
+  }
+
+  .linkedin-btn:hover::after { left: 0; }
+
+  .sidebar-section { margin-bottom: 1.8rem; }
 
   .sidebar-section-title {
     font-family: 'DM Mono', monospace;
@@ -97,108 +146,31 @@
     gap: .6rem;
     font-size: .82rem;
     color: #ccc;
-    margin-bottom: .8rem;
+    margin-bottom: .6rem;
   }
 
   .contact-item svg {
     width: 16px; height: 16px;
-    flex-shrink: 0;
     opacity: .6;
+    flex-shrink: 0;
   }
 
-  /* LINKEDIN PREMIUM BUTTON */
-  .linkedin-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 10px 16px;
-    border-radius: 8px;
-    text-decoration: none;
-    color: #fff;
-    font-size: 0.8rem;
-    font-family: 'DM Mono', monospace;
-    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-    position: relative;
-    overflow: hidden;
-    margin-bottom: 1rem;
-  }
+  .contact-email { color: #ccc; text-decoration: none; }
 
-  .linkedin-btn svg {
-    width: 18px; height: 18px;
-    fill: #fff;
-    transition: all 0.4s ease;
-    opacity: 1;
-  }
-
-  /* Ligne qui glisse au hover */
-  .linkedin-btn::after {
-    content: '';
-    position: absolute;
-    bottom: 0; left: -100%;
-    width: 100%; height: 2px;
-    background: var(--linkedin-blue);
-    transition: left 0.4s ease;
-  }
-
-  .linkedin-btn:hover {
-    background: rgba(10, 102, 194, 0.1);
-    border-color: var(--linkedin-blue);
-    color: var(--linkedin-blue);
-    box-shadow: 0 0 15px rgba(10, 102, 194, 0.3);
-    transform: translateY(-2px);
-  }
-
-  .linkedin-btn:hover svg {
-    fill: var(--linkedin-blue);
-    transform: scale(1.2) rotate(-5deg);
-  }
-
-  .linkedin-btn:hover::after {
-    left: 0;
-  }
-
-  .contact-email {
-    color: #ccc;
-    text-decoration: none;
-  }
-
-  .skill-bar-wrap { margin-bottom: 1rem; }
-
-  .skill-label {
-    font-size: .78rem;
-    color: #ccc;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: .3rem;
-  }
-
-  .skill-track {
-    height: 2px;
-    background: #2a2a2a;
-    border-radius: 2px;
-    overflow: hidden;
-  }
-
-  .skill-fill {
-    height: 100%;
-    background: var(--accent);
-    border-radius: 2px;
-    width: 0%;
-    transition: width 1.2s cubic-bezier(.16,1,.3,1);
-  }
+  .skill-bar-wrap { margin-bottom: 0.8rem; }
+  .skill-label { font-size: .75rem; color: #ccc; display: flex; justify-content: space-between; margin-bottom: .2rem; }
+  .skill-track { height: 2px; background: #2a2a2a; border-radius: 2px; overflow: hidden; }
+  .skill-fill { height: 100%; background: var(--accent); width: 0%; transition: width 1.2s cubic-bezier(.16,1,.3,1); }
 
   .soft-skill-tag {
     display: inline-block;
-    font-size: .72rem;
+    font-size: .68rem;
     background: #1e1e1e;
     color: #bbb;
     border: 1px solid #2e2e2e;
-    padding: .2rem .65rem;
-    border-radius: 20px;
-    margin: 0 .25rem .35rem 0;
-    line-height: 1.6;
+    padding: .2rem .6rem;
+    border-radius: 4px;
+    margin: 0 .2rem .3rem 0;
   }
 
   .nav-links {
@@ -206,16 +178,15 @@
     flex-direction: column;
     gap: .3rem;
     margin-top: auto;
-    padding-top: 2rem;
+    padding-top: 1.5rem;
     border-top: 1px solid #2a2a2a;
   }
 
   .nav-link {
-    font-size: .78rem;
+    font-size: .75rem;
     color: #666;
     text-decoration: none;
     font-family: 'DM Mono', monospace;
-    letter-spacing: .05em;
     transition: color .2s;
     cursor: pointer;
   }
@@ -223,13 +194,10 @@
   .nav-link:hover, .nav-link.active { color: var(--accent); }
 
   /* MAIN CONTENT */
-  .main {
-    margin-left: 300px;
-    min-height: 100vh;
-  }
+  .main { margin-left: 300px; min-height: 100vh; }
 
   .hero {
-    padding: 5rem 5rem 4rem;
+    padding: 5rem;
     border-bottom: 1px solid var(--grey-light);
     position: relative;
     overflow: hidden;
@@ -243,9 +211,9 @@
     font-size: 14rem;
     color: var(--grey-light);
     font-weight: 600;
+    opacity: 0.5;
     z-index: 0;
     pointer-events: none;
-    line-height: 1;
   }
 
   .hero-label {
@@ -255,233 +223,84 @@
     text-transform: uppercase;
     color: var(--accent);
     margin-bottom: 1rem;
-    position: relative;
-    z-index: 1;
     display: flex;
     align-items: center;
     gap: .8rem;
+    position: relative; z-index: 1;
   }
 
-  .hero-label::before {
-    content: '';
-    display: inline-block;
-    width: 2.5rem;
-    height: 1px;
-    background: var(--accent);
-  }
+  .hero-label::before { content: ''; width: 2.5rem; height: 1px; background: var(--accent); }
 
   .hero-intro {
     font-size: 1.05rem;
     color: var(--grey);
     max-width: 560px;
-    position: relative;
-    z-index: 1;
     line-height: 1.9;
+    position: relative; z-index: 1;
   }
 
   .section {
     padding: 4rem 5rem;
     border-bottom: 1px solid var(--grey-light);
     opacity: 0;
-    transform: translateY(24px);
-    transition: opacity .7s ease, transform .7s ease;
+    transform: translateY(20px);
+    transition: all .7s ease;
   }
 
-  .section.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  .section.visible { opacity: 1; transform: translateY(0); }
 
-  .section-header {
-    display: flex;
-    align-items: center;
-    gap: 1.2rem;
-    margin-bottom: 3rem;
-  }
+  .section-header { display: flex; align-items: center; gap: 1.2rem; margin-bottom: 3rem; }
+  .section-number { font-family: 'DM Mono', monospace; font-size: .65rem; color: var(--accent); }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 1.7rem; font-weight: 400; }
+  .section-line { flex: 1; height: 1px; background: var(--grey-light); }
 
-  .section-number {
-    font-family: 'DM Mono', monospace;
-    font-size: .65rem;
-    color: var(--accent);
-    letter-spacing: .1em;
-  }
-
-  .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.7rem;
-    font-weight: 400;
-  }
-
-  .section-line {
-    flex: 1;
-    height: 1px;
-    background: var(--grey-light);
-  }
-
-  .timeline {
-    position: relative;
-    padding-left: 1.5rem;
-  }
-
-  .timeline::before {
-    content: '';
-    position: absolute;
-    left: 0; top: 8px; bottom: 8px;
-    width: 1px;
-    background: var(--grey-light);
-  }
-
-  .timeline-item {
-    position: relative;
-    padding-bottom: 2.8rem;
-    padding-left: 1.8rem;
-  }
-
+  .timeline { position: relative; padding-left: 1.5rem; border-left: 1px solid var(--grey-light); }
+  .timeline-item { position: relative; padding-bottom: 2.5rem; padding-left: 1.5rem; }
   .timeline-dot {
-    position: absolute;
-    left: -1.5rem;
-    top: 8px;
-    width: 9px; height: 9px;
-    border-radius: 50%;
-    background: var(--white);
-    border: 1.5px solid var(--accent);
-    transform: translateX(-.5px);
-    transition: background .3s;
+    position: absolute; left: -1.5rem; top: 8px;
+    width: 9px; height: 9px; border-radius: 50%;
+    background: var(--white); border: 1.5px solid var(--accent);
+    transform: translateX(-5px); transition: 0.3s;
   }
-
   .timeline-item:hover .timeline-dot { background: var(--accent); }
-
-  .timeline-period {
-    font-family: 'DM Mono', monospace;
-    font-size: .68rem;
-    color: var(--accent);
-    letter-spacing: .08em;
-    margin-bottom: .3rem;
-  }
-
-  .timeline-role {
-    font-weight: 500;
-    font-size: 1rem;
-    margin-bottom: .15rem;
-  }
-
-  .timeline-company {
-    font-size: .85rem;
-    color: var(--grey);
-    margin-bottom: .7rem;
-  }
-
-  .timeline-desc {
-    font-size: .88rem;
-    color: #555;
-    line-height: 1.8;
-  }
-
-  .timeline-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: .4rem;
-    margin-top: .8rem;
-  }
+  .timeline-period { font-family: 'DM Mono', monospace; font-size: .65rem; color: var(--accent); margin-bottom: .3rem; }
+  .timeline-role { font-weight: 500; font-size: 1rem; }
+  .timeline-company { font-size: .85rem; color: var(--grey); margin-bottom: .5rem; }
+  .timeline-desc { font-size: .88rem; color: #555; line-height: 1.7; }
 
   .tag {
-    font-size: .7rem;
-    font-family: 'DM Mono', monospace;
-    background: transparent;
-    border: 1px solid var(--grey-light);
-    color: var(--grey);
-    padding: .2rem .6rem;
-    border-radius: 3px;
+    font-size: .65rem; font-family: 'DM Mono', monospace;
+    border: 1px solid var(--grey-light); color: var(--grey);
+    padding: .15rem .5rem; border-radius: 3px; margin-right: 4px;
   }
+  .tag.highlight { border-color: var(--accent-light); color: #a07030; background: #fdf8f0; }
 
-  .tag.highlight {
-    border-color: var(--accent-light);
-    color: #a07030;
-    background: #fdf8f0;
-  }
+  .training-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .training-card { border: 1px solid var(--grey-light); padding: 1.2rem; border-radius: 4px; transition: 0.3s; }
+  .training-card:hover { border-color: var(--accent); box-shadow: 0 4px 15px rgba(200,169,110,0.1); }
+  .training-card.featured { background: #fdf8f0; border-color: var(--accent-light); }
 
-  .training-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.2rem;
-  }
-
-  .training-card {
-    border: 1px solid var(--grey-light);
-    padding: 1.4rem 1.6rem;
-    border-radius: 4px;
-    transition: all .3s;
-  }
-
-  .training-card:hover {
-    border-color: var(--accent);
-    box-shadow: 0 4px 20px rgba(200,169,110,.1);
-  }
-
-  .training-card.featured {
-    border-color: var(--accent-light);
-    background: #fdf8f0;
-  }
-
-  .training-date {
-    font-family: 'DM Mono', monospace;
-    font-size: .65rem;
-    color: var(--accent);
-    margin-bottom: .4rem;
-  }
-
-  .training-name { font-weight: 500; font-size: .92rem; }
-
-  .training-detail { font-size: .8rem; color: var(--grey); }
-
-  .skills-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-  }
-
-  .skill-group-title {
-    font-family: 'DM Mono', monospace;
-    font-size: .68rem;
-    color: var(--accent);
-    margin-bottom: 1rem;
-    text-transform: uppercase;
-  }
-
+  .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .skill-group-title { font-family: 'DM Mono', monospace; font-size: .65rem; color: var(--accent); margin-bottom: 0.8rem; text-transform: uppercase; }
   .skill-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: .4rem;
-    font-size: .8rem;
-    background: #f0ece6;
-    color: #444;
-    padding: .3rem .8rem;
-    border-radius: 20px;
-    margin: 0 .3rem .4rem 0;
+    display: inline-flex; align-items: center; gap: .4rem;
+    font-size: .75rem; background: #f0ece6; color: #444;
+    padding: .25rem .7rem; border-radius: 20px; margin: 0 .2rem .4rem 0;
   }
-
   .skill-pill.active { background: var(--black); color: var(--white); }
   .skill-pill .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
 
-  .footer { padding: 3rem 5rem; text-align: center; }
+  .footer { padding: 4rem 5rem; text-align: center; }
   .footer-cta { font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-bottom: .5rem; }
   .footer-email-link { font-family: 'DM Mono', monospace; font-size: .85rem; color: var(--accent); text-decoration: none; }
 
-  .scroll-line {
-    position: fixed;
-    top: 0; left: 0;
-    height: 2px;
-    background: var(--accent);
-    z-index: 100;
-    width: 0%;
-  }
+  .scroll-line { position: fixed; top: 0; left: 0; height: 2px; background: var(--accent); z-index: 100; width: 0%; }
 
   @media (max-width: 900px) {
-    .sidebar { position: static; width: 100%; height: auto; padding: 2rem; }
+    .sidebar { position: static; width: 100%; height: auto; }
     .main { margin-left: 0; }
-    .hero, .section { padding: 3rem 2rem; }
+    .hero, .section { padding: 3rem 1.5rem; }
     .training-grid, .skills-grid { grid-template-columns: 1fr; }
-    .hero::before { font-size: 7rem; }
   }
 </style>
 </head>
@@ -490,21 +309,18 @@
 <div class="scroll-line" id="scrollLine"></div>
 
 <aside class="sidebar">
-
   <img class="sidebar-photo" src="photo.jpg" alt="Karim Sabri">
-
   <div class="sidebar-name">Karim Sabri</div>
   <div class="sidebar-title">Testeur QA</div>
   <div class="sidebar-tagline">Motivé par la curiosité, expert par passion, engagé par conviction</div>
 
+  <a href="https://www.linkedin.com/in/karim-sabri-11548a141" target="_blank" class="linkedin-btn">
+    <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+    Voir profil LinkedIn
+  </a>
+
   <div class="sidebar-section">
     <div class="sidebar-section-title">Contact</div>
-    
-    <a href="https://www.linkedin.com/in/karim-sabri-11548a141" target="_blank" class="linkedin-btn">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-      Voir mon Profil
-    </a>
-
     <div class="contact-item">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
       <span id="contact-email"></span>
@@ -513,30 +329,13 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
       BOURGUÉBUS 14540
     </div>
-    <div class="contact-item">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
-      Permis B, A — Certification d'État T3P
-    </div>
   </div>
 
   <div class="sidebar-section">
-    <div class="sidebar-section-title">Compétences techniques</div>
-    <div class="skill-bar-wrap">
-      <div class="skill-label"><span>Apple Certification (HW+SW)</span><span>4.5/5</span></div>
-      <div class="skill-track"><div class="skill-fill" data-w="90"></div></div>
-    </div>
-    <div class="skill-bar-wrap">
-      <div class="skill-label"><span>Tests fonctionnels / exploratoires</span></div>
-      <div class="skill-track"><div class="skill-fill" data-w="70"></div></div>
-    </div>
-    <div class="skill-bar-wrap">
-      <div class="skill-label"><span>Jira / Katalon Studio</span><span>en cours</span></div>
-      <div class="skill-track"><div class="skill-fill" data-w="45"></div></div>
-    </div>
-    <div class="skill-bar-wrap">
-      <div class="skill-label"><span>Selenium / Cucumber</span><span>en cours</span></div>
-      <div class="skill-track"><div class="skill-fill" data-w="35"></div></div>
-    </div>
+    <div class="sidebar-section-title">Niveau d'expertise</div>
+    <div class="skill-bar-wrap"><div class="skill-label"><span>Certif. Apple (HW/SW)</span><span>4.5/5</span></div><div class="skill-track"><div class="skill-fill" data-w="90"></div></div></div>
+    <div class="skill-bar-wrap"><div class="skill-label"><span>Tests Exploratoires</span><span>4/5</span></div><div class="skill-track"><div class="skill-fill" data-w="80"></div></div></div>
+    <div class="skill-bar-wrap"><div class="skill-label"><span>Automatisation (Jira/Selenium)</span><span>Apprenti</span></div><div class="skill-track"><div class="skill-fill" data-w="40"></div></div></div>
   </div>
 
   <div class="sidebar-section">
@@ -545,6 +344,7 @@
     <span class="soft-skill-tag">Empathie</span>
     <span class="soft-skill-tag">Troubleshooting</span>
     <span class="soft-skill-tag">Analyse fine</span>
+    <span class="soft-skill-tag">Résilience</span>
   </div>
 
   <nav class="nav-links">
@@ -553,7 +353,6 @@
     <a class="nav-link" onclick="goTo('formation')">Formation</a>
     <a class="nav-link" onclick="goTo('skills')">Skills</a>
   </nav>
-
 </aside>
 
 <main class="main">
@@ -567,119 +366,103 @@
 
   <section class="section" id="experience">
     <div class="section-header">
-      <span class="section-number">01</span>
-      <h2 class="section-title">Expériences professionnelles</h2>
-      <div class="section-line"></div>
+      <span class="section-number">01</span><h2 class="section-title">Expériences professionnelles</h2><div class="section-line"></div>
     </div>
     <div class="timeline">
       <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-period">Septembre - Octobre 2025</div>
-        <div class="timeline-role">Stage en test logiciel</div>
-        <div class="timeline-company">SKAZY</div>
-        <div class="timeline-desc">Immersion concrète dans le test logiciel, élaboration de scénario pour des tests fonctionnels et exploratoires, analyse des résultats et rédaction de rapport.</div>
-        <div class="timeline-tags">
-          <span class="tag highlight">Tests fonctionnels</span>
-          <span class="tag highlight">Tests exploratoires</span>
-        </div>
+        <div class="timeline-dot"></div><div class="timeline-period">09/2025 - 10/2025</div>
+        <div class="timeline-role">Stage en test logiciel</div><div class="timeline-company">SKAZY</div>
+        <div class="timeline-desc">Tests fonctionnels et exploratoires, réduction des régressions post-déploiement, rédaction de rapports techniques.</div>
       </div>
       <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-period">Avril 2019 - Janvier 2024</div>
-        <div class="timeline-role">Cadre intégré 'Genius'</div>
-        <div class="timeline-company">Apple Store, Marseille</div>
-        <div class="timeline-desc">Expert en haute technicité (MacOS, IOS). Diagnostic et réparation de pointe Hardware & Software. Tests fonctionnels post repair, stress tests et performance.</div>
-        <div class="timeline-tags">
-          <span class="tag highlight">Stress test</span>
-          <span class="tag highlight">Test performance</span>
-          <span class="tag">MacOS / iOS</span>
-        </div>
+        <div class="timeline-dot"></div><div class="timeline-period">02/2024 - 05/2025</div>
+        <div class="timeline-role">Responsable Certification Apple</div><div class="timeline-company">Monaco Telecom</div>
+        <div class="timeline-desc">Lancement stratégie 'Tech-Corner', pilotage KPI et refonte parcours client.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div><div class="timeline-period">04/2019 - 01/2024</div>
+        <div class="timeline-role">Cadre intégré 'Genius'</div><div class="timeline-company">Apple Store, Marseille</div>
+        <div class="timeline-desc">Expert MacOS/iOS, diagnostics hardware complexes, stress tests et tests de performance système.</div>
       </div>
     </div>
   </section>
 
   <section class="section" id="formation">
     <div class="section-header">
-      <span class="section-number">02</span>
-      <h2 class="section-title">Formation</h2>
-      <div class="section-line"></div>
+      <span class="section-number">02</span><h2 class="section-title">Formation</h2><div class="section-line"></div>
     </div>
     <div class="training-grid">
-      <div class="training-card featured">
-        <div class="training-date">02/2026 – 08/2026</div>
-        <div class="training-name">Formation Testeur Logiciel / QA</div>
-        <div class="training-detail">ENI École Informatique · Titre RNCP Niveau V — Bac+2</div>
-      </div>
-      <div class="training-card featured">
-        <div class="training-date">05/2026 · En cours</div>
-        <div class="training-name">Certification ISTQB</div>
-        <div class="training-detail">Fondation</div>
-      </div>
+      <div class="training-card featured"><div class="training-date">05/2026 · En cours</div><div class="training-name">Certification ISTQB</div><div class="training-detail">Niveau Fondation</div></div>
+      <div class="training-card featured"><div class="training-date">02/2026 – 08/2026</div><div class="training-name">Formation Testeur Logiciel / QA</div><div class="training-detail">ENI École Informatique (Bac+2)</div></div>
+      <div class="training-card"><div class="training-date">2008 – 2009</div><div class="training-name">Web-master / Graphisme</div><div class="training-detail">Institut MULTIHEXA</div></div>
     </div>
   </section>
 
   <section class="section" id="skills">
     <div class="section-header">
-      <span class="section-number">03</span>
-      <h2 class="section-title">Outils & Technologies</h2>
-      <div class="section-line"></div>
+      <span class="section-number">03</span><h2 class="section-title">Outils & Technologies</h2><div class="section-line"></div>
     </div>
     <div class="skills-grid">
       <div>
-        <div class="skill-group-title">QA & Test</div>
+        <div class="skill-group-title">QA & Test (Formation)</div>
         <span class="skill-pill active"><span class="dot"></span>Selenium</span>
+        <span class="skill-pill active"><span class="dot"></span>Cucumber</span>
         <span class="skill-pill active"><span class="dot"></span>Jira</span>
-        <span class="skill-pill"><span class="dot"></span>Tests fonctionnels</span>
+        <span class="skill-pill active"><span class="dot"></span>Katalon Studio</span>
+        <span class="skill-pill"><span class="dot"></span>Stress Tests</span>
+      </div>
+      <div>
+        <div class="skill-group-title">Développement</div>
+        <span class="skill-pill active"><span class="dot"></span>Python</span>
+        <span class="skill-pill active"><span class="dot"></span>SQL</span>
+        <span class="skill-pill active"><span class="dot"></span>HTML / CSS</span>
+        <span class="skill-pill active"><span class="dot"></span>JavaScript</span>
       </div>
       <div>
         <div class="skill-group-title">Expertise Apple</div>
-        <span class="skill-pill"><span class="dot"></span>Mac / iPhone</span>
-        <span class="skill-pill"><span class="dot"></span>Hardware + Software</span>
+        <span class="skill-pill"><span class="dot"></span>macOS / iOS</span>
+        <span class="skill-pill"><span class="dot"></span>Hardware Diagnostics</span>
+        <span class="skill-pill"><span class="dot"></span>Product Lifecycle</span>
+      </div>
+      <div>
+        <div class="skill-group-title">Design & Autres</div>
+        <span class="skill-pill"><span class="dot"></span>Photoshop</span>
+        <span class="skill-pill"><span class="dot"></span>Lightroom</span>
+        <span class="skill-pill"><span class="dot"></span>Windows OS</span>
       </div>
     </div>
   </section>
 
   <footer class="footer">
-    <div class="footer-cta">Disponible pour un stage en test logiciel</div>
+    <div class="footer-cta">Prêt pour de nouveaux défis en QA</div>
     <span id="footer-email"></span>
   </footer>
 </main>
 
 <script>
   (function() {
-    var u = 'sabri.karim144';
-    var d = 'gmail.com';
-    var e = u + '@' + d;
-    var ce = document.getElementById('contact-email');
-    var fe = document.getElementById('footer-email');
+    var u = 'sabri.karim144', d = 'gmail.com', e = u + '@' + d;
+    var ce = document.getElementById('contact-email'), fe = document.getElementById('footer-email');
     if (ce) ce.innerHTML = '<a class="contact-email" href="mailto:' + e + '">' + e + '</a>';
     if (fe) fe.innerHTML = '<a class="footer-email-link" href="mailto:' + e + '">' + e + '</a>';
   })();
 
-  window.addEventListener('scroll', function() {
-    var scrolled = window.scrollY;
-    var total = document.body.scrollHeight - window.innerHeight;
+  window.addEventListener('scroll', () => {
+    var scrolled = window.scrollY, total = document.body.scrollHeight - window.innerHeight;
     document.getElementById('scrollLine').style.width = (scrolled / total * 100) + '%';
   });
 
-  function goTo(id) {
-    var el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-  }
+  function goTo(id) { document.getElementById(id).scrollIntoView({ behavior: 'smooth' }); }
 
-  var observer = new IntersectionObserver(function(entries) {
-    entries.forEach(function(e) {
-      if (e.isIntersecting) e.target.classList.add('visible');
-    });
-  }, { threshold: 0.08 });
+  var observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
 
-  document.querySelectorAll('.section').forEach(function(s) { observer.observe(s); });
+  document.querySelectorAll('.section').forEach(s => observer.observe(s));
 
-  setTimeout(function() {
-    document.querySelectorAll('.skill-fill').forEach(function(fill) {
-      fill.style.width = fill.getAttribute('data-w') + '%';
-    });
-  }, 500);
+  setTimeout(() => {
+    document.querySelectorAll('.skill-fill').forEach(f => f.style.width = f.getAttribute('data-w') + '%');
+  }, 400);
 </script>
 </body>
 </html>
